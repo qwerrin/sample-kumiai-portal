@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 事業協同組合ポータル — サンプル実装
 
-## Getting Started
+ポートフォリオ用サンプルサイト。クラウドワークスで見かけた「事業協同組合ポータルのUI/UX刷新」案件を題材に、**モノトーン＋和紙質感**のデザインをNext.jsで実装したもの。
 
-First, run the development server:
+> ⚠️ 実在する組合・団体とは一切関係ありません。掲載の組合名・住所・電話番号はすべてダミーです。
+
+## デモ
+
+<!-- デプロイ後にURLを記載 -->
+Vercel デプロイ後、URL をここに追記予定。
+
+## スクリーンショット
+
+<!-- スクリーンショットを追加予定 -->
+
+## 技術スタック
+
+| 項目 | 内容 |
+|---|---|
+| フレームワーク | Next.js 16（App Router） |
+| 言語 | TypeScript |
+| スタイリング | Tailwind CSS v4 + CSS カスタムプロパティ |
+| フォント | Shippori Mincho / Noto Sans JP / Cormorant Garamond（`next/font`） |
+| デプロイ | Vercel |
+
+## デザインの特徴
+
+- **和紙トーン**: `--paper` (#e9e4d8) をベースに、`body::before` で SVG feTurbulence ノイズを薄く重ねた質感
+- **光のムラ**: `body::after` の radial-gradient で四隅に明暗
+- **差し色は朱のみ**: `--shu` (#9e3b25) をラベル・罫線・ホバーにのみ使用
+- **フェードイン**: IntersectionObserver による `.reveal` / `.in` の scroll-linked アニメーション（ライブラリなし）
+
+## ページ構成（ホームのみ実装）
+
+| セクション | 内容 |
+|---|---|
+| Header | 固定。スクロール60px超で半透明＋blur |
+| Hero | 2カラムグリッド、ウォーターマーク「協」、stagger fade-in |
+| About | リード引用文＋縦長ビジュアル |
+| Business | 3列×6カード、極細罫線グリッド |
+| Stats | 墨背景帯に数値4項目 |
+| News | 一覧。ホバーで左シフト |
+| CTA | 加入のご案内 |
+| Footer | 墨背景3カラム |
+
+画像はすべてプレースホルダー（`components/Placeholder.tsx`）で差し替え前提。
+
+## セットアップ
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) で確認。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ブランチ運用
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+main        — リリースブランチ
+develop     — 統合ブランチ
+feature/*   — 機能開発
+```
 
-## Learn More
+## ライセンス
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT — ポートフォリオ目的での参照・改変はご自由にどうぞ。
