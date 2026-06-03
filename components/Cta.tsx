@@ -3,107 +3,63 @@ import Reveal from "./Reveal";
 export default function Cta() {
   return (
     <section
-      id="cta"
+      id="admission"
       style={{
-        background: "var(--paper-3)",
-        borderTop: "1px solid var(--line)",
-        padding: "10rem 4rem",
         textAlign: "center",
+        background: "var(--paper-3)",
+        borderTop: "1px solid var(--line-soft)",
+        padding: "8rem 3.5rem",
       }}
     >
       <Reveal>
-        <p
-          style={{
-            fontFamily: "var(--font-cormorant)",
-            fontSize: ".8rem",
-            letterSpacing: ".3em",
-            color: "var(--shu)",
-            textTransform: "uppercase",
-            marginBottom: "2rem",
-          }}
-        >
-          Join Us
-        </p>
-      </Reveal>
-
-      <Reveal delay={1}>
-        <h2
-          style={{
-            fontFamily: "var(--font-shippori)",
-            fontWeight: 700,
-            fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-            color: "var(--sumi)",
-            lineHeight: 1.6,
-            letterSpacing: ".06em",
-            marginBottom: "2rem",
-          }}
-        >
-          共に、次の半世紀へ。
-        </h2>
-      </Reveal>
-
-      <Reveal delay={2}>
-        <p
-          style={{
-            fontFamily: "var(--font-noto)",
-            fontSize: ".92rem",
-            color: "var(--gray)",
-            lineHeight: 2,
-            letterSpacing: ".04em",
-            maxWidth: "40ch",
-            margin: "0 auto 3rem",
-          }}
-        >
-          東京中央事業協同組合への加入をご検討の方は、<br />
-          お気軽にお問い合わせください。<br />
-          担当者より詳しいご案内をお送りします。
-        </p>
-      </Reveal>
-
-      <Reveal delay={3}>
-        <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
-          <a
-            href="#contact"
+        <div>
+          {/* CTA用ラベル（両側ライン） */}
+          <div
             style={{
-              fontFamily: "var(--font-noto)",
-              fontSize: ".85rem",
-              letterSpacing: ".12em",
-              color: "var(--paper-2)",
-              background: "var(--sumi)",
-              textDecoration: "none",
-              padding: "1rem 2.8rem",
-              transition: "background .3s",
+              justifyContent: "center",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "1rem",
+              color: "var(--shu)",
+              fontFamily: "var(--font-cormorant)",
+              fontSize: ".72rem",
+              letterSpacing: ".32em",
+              marginBottom: "1.4rem",
             }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "var(--sumi-2)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "var(--sumi)")}
           >
-            加入のご相談
-          </a>
-          <a
-            href="#"
+            <span style={{ display: "block", width: 34, height: 1, background: "var(--shu)" }} />
+            JOIN US
+            <span style={{ display: "block", width: 34, height: 1, background: "var(--shu)" }} />
+          </div>
+
+          <h2
             style={{
-              fontFamily: "var(--font-noto)",
-              fontSize: ".85rem",
-              letterSpacing: ".12em",
-              color: "var(--sumi)",
-              textDecoration: "none",
-              border: "1px solid var(--line)",
-              padding: "1rem 2.8rem",
-              transition: "border-color .25s",
+              fontFamily: "var(--font-shippori)",
+              fontWeight: 600,
+              fontSize: "clamp(1.9rem,3.6vw,2.9rem)",
+              marginBottom: "1.4rem",
+              letterSpacing: ".04em",
             }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--shu)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--line)")}
           >
-            資料請求
+            共に、次の半世紀へ。
+          </h2>
+
+          <p
+            style={{
+              color: "var(--gray)",
+              maxWidth: 560,
+              margin: "0 auto 2.8rem",
+            }}
+          >
+            加入のご相談・資料請求はお気軽にお問い合わせください。
+            組合の事業内容や加入条件について、担当者が丁寧にご説明いたします。
+          </p>
+
+          <a href="#contact" className="btn btn-solid">
+            加入のご案内・お問い合わせ <span className="arr">→</span>
           </a>
         </div>
       </Reveal>
-
-      <style>{`
-        @media (max-width: 860px) {
-          #cta { padding: 5rem 1.5rem !important; }
-        }
-      `}</style>
     </section>
   );
 }

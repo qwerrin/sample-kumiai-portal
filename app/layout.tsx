@@ -29,26 +29,10 @@ export const metadata: Metadata = {
   description: "中小企業の力を、ひとつに束ねる。地域とともに、半世紀。",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja" className={`${shippori.variable} ${noto.variable} ${cormorant.variable}`}>
-      <body>
-        {/* 和紙テクスチャ */}
-        <svg className="washi-texture" xmlns="http://www.w3.org/2000/svg">
-          <filter id="washi">
-            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#washi)" />
-        </svg>
-        {/* 光のムラ */}
-        <div className="vignette" aria-hidden="true" />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

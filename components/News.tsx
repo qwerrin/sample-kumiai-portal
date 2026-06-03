@@ -1,26 +1,10 @@
 import Reveal from "./Reveal";
 
 const NEWS = [
-  {
-    date: "2024.03.15",
-    tag: "お知らせ",
-    title: "令和6年度 定期総会の開催について",
-  },
-  {
-    date: "2024.02.28",
-    tag: "事業案内",
-    title: "共同購買事業における新規取引先との契約締結のお知らせ",
-  },
-  {
-    date: "2024.02.01",
-    tag: "研修・セミナー",
-    title: "2024年度 経営者向け研修プログラムのご案内",
-  },
-  {
-    date: "2024.01.10",
-    tag: "補助金情報",
-    title: "中小企業省エネルギー設備導入支援補助金の申請受付開始",
-  },
+  { date: "2026.05.28", tag: "行事", title: "第56回 通常総会開催のご案内を掲載しました" },
+  { date: "2026.05.14", tag: "共済", title: "共済制度の給付内容改定について（2026年度版）" },
+  { date: "2026.04.30", tag: "募集", title: "経営力強化セミナー（6月開催）の参加申込受付を開始" },
+  { date: "2026.04.02", tag: "重要", title: "事務局ゴールデンウィーク期間中の休業日のお知らせ" },
 ];
 
 export default function News() {
@@ -28,149 +12,89 @@ export default function News() {
     <section
       id="news"
       style={{
-        maxWidth: 1200,
-        margin: "0 auto",
-        padding: "10rem 4rem",
+        background: "var(--paper-2)",
+        padding: "8rem 3.5rem",
       }}
     >
       <Reveal>
         <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            marginBottom: "4rem",
-          }}
+          className="sec-head"
+          style={{ maxWidth: 920, marginLeft: "auto", marginRight: "auto", marginBottom: "4.5rem" }}
         >
-          <div>
-            <p
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontSize: ".8rem",
-                letterSpacing: ".3em",
-                color: "var(--shu)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              News
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-shippori)",
-                fontWeight: 700,
-                fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-                color: "var(--sumi)",
-                letterSpacing: ".04em",
-              }}
-            >
-              お知らせ
-            </h2>
-          </div>
-          <a
-            href="#"
+          <span className="sec-label">NEWS</span>
+          <h2
             style={{
-              fontFamily: "var(--font-noto)",
-              fontSize: ".78rem",
-              color: "var(--gray)",
-              textDecoration: "none",
-              letterSpacing: ".1em",
-              borderBottom: "1px solid var(--line)",
-              paddingBottom: "2px",
+              fontFamily: "var(--font-shippori)",
+              fontWeight: 600,
+              fontSize: "clamp(1.9rem,3.6vw,2.9rem)",
+              letterSpacing: ".04em",
+              lineHeight: 1.4,
+              color: "var(--sumi)",
             }}
           >
-            一覧を見る →
-          </a>
+            お知らせ
+          </h2>
         </div>
       </Reveal>
 
-      <div style={{ borderTop: "1px solid var(--line)" }}>
+      <div style={{ maxWidth: 920, margin: "0 auto" }}>
         {NEWS.map((item, i) => (
-          <Reveal key={i} delay={1}>
-            <NewsRow item={item} />
+          <Reveal key={i}>
+            <a
+              href="#"
+              className="news-item"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "130px 110px 1fr 30px",
+                gap: "1.5rem",
+                alignItems: "center",
+                padding: "1.8rem 0",
+                borderBottom: "1px solid var(--line-soft)",
+                borderTop: i === 0 ? "1px solid var(--line-soft)" : "none",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "1rem",
+                  color: "var(--gray)",
+                  letterSpacing: ".06em",
+                }}
+              >
+                {item.date}
+              </span>
+              <span
+                style={{
+                  fontSize: ".68rem",
+                  letterSpacing: ".14em",
+                  padding: ".35rem .7rem",
+                  border: "1px solid var(--sumi)",
+                  textAlign: "center",
+                }}
+              >
+                {item.tag}
+              </span>
+              <span style={{ fontSize: ".96rem" }}>{item.title}</span>
+              <span
+                className="arr"
+                style={{ justifySelf: "end" }}
+              >
+                →
+              </span>
+            </a>
           </Reveal>
         ))}
       </div>
 
       <style>{`
         @media (max-width: 860px) {
-          #news { padding: 5rem 1.5rem !important; }
+          .news-item { grid-template-columns: 90px 1fr !important; gap: .6rem 1rem !important; }
+          .news-item span:nth-child(2) { order: -1; justify-self: start; }
+          .news-item .arr { display: none; }
         }
       `}</style>
     </section>
-  );
-}
-
-function NewsRow({ item }: { item: typeof NEWS[number] }) {
-  return (
-    <a
-      href="#"
-      className="news-row"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "auto auto 1fr auto",
-        alignItems: "center",
-        gap: "2rem",
-        padding: "1.4rem 0",
-        borderBottom: "1px solid var(--line-soft)",
-        textDecoration: "none",
-        transition: "padding-left .3s cubic-bezier(.16,1,.3,1)",
-      }}
-    >
-      <span
-        style={{
-          fontFamily: "var(--font-cormorant)",
-          fontSize: ".9rem",
-          color: "var(--gray-soft)",
-          letterSpacing: ".08em",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {item.date}
-      </span>
-      <span
-        style={{
-          fontFamily: "var(--font-noto)",
-          fontSize: ".7rem",
-          color: "var(--gray)",
-          border: "1px solid var(--line)",
-          padding: ".2rem .6rem",
-          letterSpacing: ".06em",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {item.tag}
-      </span>
-      <span
-        style={{
-          fontFamily: "var(--font-noto)",
-          fontSize: ".88rem",
-          color: "var(--sumi)",
-          letterSpacing: ".04em",
-        }}
-      >
-        {item.title}
-      </span>
-      <span
-        className="news-arrow"
-        style={{
-          fontFamily: "var(--font-cormorant)",
-          fontSize: "1rem",
-          color: "var(--gray-soft)",
-          transition: "color .25s",
-        }}
-      >
-        →
-      </span>
-      <style>{`
-        .news-row:hover { padding-left: 1rem; }
-        .news-row:hover .news-arrow { color: var(--shu); }
-        .news-row:hover span:nth-child(3) { color: var(--shu); }
-        @media (max-width: 860px) {
-          .news-row { grid-template-columns: 1fr auto !important; }
-          .news-row span:nth-child(2) { order: -1; grid-column: 1 / -1; }
-        }
-      `}</style>
-    </a>
   );
 }

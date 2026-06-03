@@ -1,165 +1,89 @@
 import Reveal from "./Reveal";
 
 const ITEMS = [
-  {
-    num: "01",
-    title: "共同購買事業",
-    desc: "原材料・資材・機械設備の一括購買により、コスト削減と安定調達を実現します。",
-  },
-  {
-    num: "02",
-    title: "共同受注事業",
-    desc: "組合員の技術・設備を結集し、単独では受注困難な大型案件に対応します。",
-  },
-  {
-    num: "03",
-    title: "教育研修事業",
-    desc: "業界動向・法規制・技術革新に対応した研修プログラムを年間通じて提供します。",
-  },
-  {
-    num: "04",
-    title: "経営支援事業",
-    desc: "専門家ネットワークを活かした財務・税務・法務・ITの総合的な経営支援を行います。",
-  },
-  {
-    num: "05",
-    title: "福利厚生事業",
-    desc: "健康保険・退職金共済・慶弔見舞いなど、中小企業の人材定着を支援します。",
-  },
-  {
-    num: "06",
-    title: "情報提供事業",
-    desc: "業界情報・補助金・政策動向など、経営に役立つ最新情報を定期的に発信します。",
-  },
+  { num: "01", title: "共同購買事業", desc: "原材料・資材などをスケールメリットを活かして一括調達。組合員のコスト削減と安定供給を実現します。" },
+  { num: "02", title: "共同受注事業", desc: "単独では受けきれない大型案件も、組合員の連携によって受注。新たな事業機会の創出を支援します。" },
+  { num: "03", title: "金融・共済事業", desc: "事業資金の融資斡旋や各種共済制度を通じ、組合員企業の経営の安定と従業員の福利厚生を支えます。" },
+  { num: "04", title: "教育・情報提供", desc: "経営セミナーや業界動向の情報共有を通じて、組合員の人材育成と意思決定をサポートします。" },
+  { num: "05", title: "福利厚生事業", desc: "慰安旅行や健康診断、各種優待制度など、組合員企業の従業員が安心して働ける環境づくりを推進します。" },
+  { num: "06", title: "行政・渉外対応", desc: "業界団体・行政との橋渡し役として、制度変更への対応や各種申請を組合として一括サポートします。" },
 ];
 
 export default function Business() {
   return (
-    <section
-      id="business"
-      style={{
-        background: "var(--paper-2)",
-        borderTop: "1px solid var(--line)",
-        borderBottom: "1px solid var(--line)",
-        padding: "10rem 4rem",
-      }}
-    >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <Reveal>
-          <div style={{ marginBottom: "5rem" }}>
-            <p
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontSize: ".8rem",
-                letterSpacing: ".3em",
-                color: "var(--shu)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              Our Business
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-shippori)",
-                fontWeight: 700,
-                fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-                color: "var(--sumi)",
-                letterSpacing: ".04em",
-              }}
-            >
-              事業案内
-            </h2>
-          </div>
-        </Reveal>
-
+    <section id="business" style={{ padding: "8rem 3.5rem" }}>
+      <Reveal>
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-          }}
+          className="sec-head"
+          style={{ maxWidth: 1200, marginLeft: "auto", marginRight: "auto", marginBottom: "4.5rem" }}
         >
-          {ITEMS.map((item, i) => (
-            <Reveal key={item.num} delay={((i % 3) + 1) as 1 | 2 | 3}>
-              <BusinessCard item={item} />
-            </Reveal>
-          ))}
+          <span className="sec-label">OUR BUSINESS</span>
+          <h2
+            style={{
+              fontFamily: "var(--font-shippori)",
+              fontWeight: 600,
+              fontSize: "clamp(1.9rem,3.6vw,2.9rem)",
+              letterSpacing: ".04em",
+              lineHeight: 1.4,
+              color: "var(--sumi)",
+            }}
+          >
+            事業案内
+          </h2>
         </div>
+      </Reveal>
+
+      {/* gap:1px + background で極細罫線 */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3,1fr)",
+          gap: "1px",
+          background: "var(--line-soft)",
+          border: "1px solid var(--line-soft)",
+          maxWidth: 1200,
+          margin: "0 auto",
+        }}
+      >
+        {ITEMS.map((item, i) => (
+          <Reveal key={item.num} delay={(i % 3) as 0 | 1 | 2}>
+            <div
+              className="biz-card"
+              style={{ padding: "3rem 2.4rem" }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "1rem",
+                  color: "var(--shu)",
+                  letterSpacing: ".1em",
+                  marginBottom: "1.6rem",
+                }}
+              >
+                {item.num}
+              </div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-shippori)",
+                  fontSize: "1.3rem",
+                  fontWeight: 600,
+                  marginBottom: "1rem",
+                }}
+              >
+                {item.title}
+              </h3>
+              <p style={{ color: "var(--gray)", fontSize: ".92rem" }}>{item.desc}</p>
+              <div className="ln" />
+            </div>
+          </Reveal>
+        ))}
       </div>
 
       <style>{`
         @media (max-width: 860px) {
-          #business { padding: 5rem 1.5rem !important; }
-          #business [data-grid] { grid-template-columns: 1fr !important; }
+          #business [style*="repeat(3"] { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
-  );
-}
-
-function BusinessCard({ item }: { item: typeof ITEMS[number] }) {
-  return (
-    <div
-      className="business-card"
-      style={{
-        padding: "2.5rem 2rem",
-        borderRight: "1px solid var(--line)",
-        borderBottom: "1px solid var(--line)",
-        cursor: "default",
-        transition: "background .25s",
-        position: "relative",
-      }}
-    >
-      <span
-        style={{
-          display: "block",
-          fontFamily: "var(--font-cormorant)",
-          fontSize: "1.5rem",
-          color: "var(--shu)",
-          letterSpacing: ".1em",
-          marginBottom: "1rem",
-        }}
-      >
-        {item.num}
-      </span>
-      <h3
-        style={{
-          fontFamily: "var(--font-shippori)",
-          fontWeight: 600,
-          fontSize: "1.05rem",
-          color: "var(--sumi)",
-          letterSpacing: ".06em",
-          marginBottom: "1rem",
-        }}
-      >
-        {item.title}
-      </h3>
-      <p
-        style={{
-          fontFamily: "var(--font-noto)",
-          fontSize: ".85rem",
-          color: "var(--gray)",
-          lineHeight: 1.85,
-          letterSpacing: ".03em",
-          marginBottom: "1.5rem",
-        }}
-      >
-        {item.desc}
-      </p>
-      <div
-        className="card-line"
-        style={{
-          height: 1,
-          background: "var(--sumi)",
-          width: 30,
-          transition: "width .35s cubic-bezier(.16,1,.3,1)",
-        }}
-      />
-      <style>{`
-        .business-card:hover { background: var(--paper); }
-        .business-card:hover .card-line { width: 60px; }
-        .business-card:nth-child(3n) { border-right: none; }
-      `}</style>
-    </div>
   );
 }
