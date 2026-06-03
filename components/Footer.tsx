@@ -68,14 +68,13 @@ export default function Footer() {
               <li key={item.href} style={{ marginBottom: ".9rem" }}>
                 <a
                   href={item.href}
+                  className="foot-link"
                   style={{
                     color: "rgba(241,237,227,.6)",
                     textDecoration: "none",
                     fontSize: ".86rem",
                     transition: "color .3s",
                   }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--paper-2)")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(241,237,227,.6)")}
                 >
                   {item.label}
                 </a>
@@ -101,14 +100,13 @@ export default function Footer() {
               <li key={item.href} style={{ marginBottom: ".9rem" }}>
                 <a
                   href={item.href}
+                  className="foot-link"
                   style={{
                     color: "rgba(241,237,227,.6)",
                     textDecoration: "none",
                     fontSize: ".86rem",
                     transition: "color .3s",
                   }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--paper-2)")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(241,237,227,.6)")}
                 >
                   {item.label}
                 </a>
@@ -137,6 +135,7 @@ export default function Footer() {
       </div>
 
       <style>{`
+        .foot-link:hover { color: var(--paper-2) !important; }
         @media (max-width: 860px) {
           footer [style*="repeat"] { grid-template-columns: 1fr !important; gap: 2rem !important; }
           footer [style*="space-between"] { flex-direction: column; gap: .6rem; }
