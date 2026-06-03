@@ -6,8 +6,7 @@
 
 ## スクリーンショット
 
-<!-- public/screenshot.png を追加したら下のコメントアウトを外す -->
-<!-- ![screenshot](public/screenshot.png) -->
+![screenshot](public/screenshot.png)
 
 ## 技術スタック
 
