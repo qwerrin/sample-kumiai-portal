@@ -42,11 +42,11 @@ export default function Footer() {
               marginBottom: "1rem",
             }}
           >
-            東京中央事業協同組合
+            〇〇事業協同組合
           </div>
           <p style={{ fontSize: ".84rem", lineHeight: 1.9 }}>
-            〒100-0000 東京都千代田区中央0-0-0 中央ビル5F<br />
-            TEL 03-0000-0000 / FAX 03-0000-0000<br />
+            〒000-0000 ○○都○○区○○ 0-0-0 ○○ビル0F<br />
+            TEL 00-0000-0000 / FAX 00-0000-0000<br />
             受付時間 平日 9:00 – 17:30
           </p>
         </div>
@@ -130,8 +130,8 @@ export default function Footer() {
           color: "rgba(241,237,227,.4)",
         }}
       >
-        <span>© 2026 東京中央事業協同組合</span>
-        <span style={{ fontFamily: "var(--font-cormorant)" }}>TOKYO CHUO COOPERATIVE ASSOCIATION</span>
+        <span>© 2026 〇〇事業協同組合 ※ポートフォリオ用サンプルサイト</span>
+        <span style={{ fontFamily: "var(--font-cormorant)" }}>SAMPLE COOPERATIVE ASSOCIATION</span>
       </div>
 
       <style>{`

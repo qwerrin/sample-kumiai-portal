@@ -25,8 +25,8 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "東京中央事業協同組合",
-  description: "中小企業の力を、ひとつに束ねる。地域とともに、半世紀。",
+  title: "【サンプル】〇〇事業協同組合",
+  description: "ポートフォリオ用サンプルサイト — 事業協同組合ポータルのUI/UX実装例",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

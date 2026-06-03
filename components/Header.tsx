@@ -47,7 +47,7 @@ export default function Header() {
             letterSpacing: ".14em",
           }}
         >
-          東京中央事業協同組合
+          〇〇事業協同組合
         </div>
         <div
           style={{
@@ -57,7 +57,7 @@ export default function Header() {
             color: "var(--gray-soft)",
           }}
         >
-          TOKYO CHUO COOPERATIVE
+          SAMPLE COOPERATIVE ASSOCIATION
         </div>
       </a>
 
